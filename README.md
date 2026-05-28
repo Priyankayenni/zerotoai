@@ -2,6 +2,7 @@
 
 A full-stack learning platform taking students from zero Python knowledge to ML engineer.
 Built with React + Vite + TypeScript + Supabase + Framer Motion.
+[Live Demo](https://zerotoai-six.vercel.app/) *(Update after deployment)*
 
 ## Stack
 - **Frontend**: React 19, Vite, TypeScript, Tailwind CSS v4, Framer Motion
