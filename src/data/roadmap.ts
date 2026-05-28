@@ -1,0 +1,182 @@
+export type Track = "Python" | "Math" | "ML" | "Projects";
+
+export type Phase = {
+  id: string;
+  track: Track;
+  title: string;
+  duration: string;
+  outcome: string;
+  focus: string[];
+  practice: string;
+  resource?: string;
+};
+
+export const phases: Phase[] = [
+  {
+    id: "py-01",
+    track: "Python",
+    title: "Setup and First Contact",
+    duration: "Days 1-3",
+    outcome: "Run Python from VS Code without fear.",
+    focus: ["Install check", "Terminal basics", "print statements", "syntax errors"],
+    practice: "Write 10 tiny programs that print your name, city, goals, and daily promise.",
+  },
+  {
+    id: "py-02",
+    track: "Python",
+    title: "Variables and Input",
+    duration: "Days 4-8",
+    outcome: "Store values, take input, and build simple calculators.",
+    focus: ["strings", "numbers", "input", "type conversion"],
+    practice: "Build age, marks, bill split, and BMI calculators from scratch.",
+  },
+  {
+    id: "py-03",
+    track: "Python",
+    title: "Conditions",
+    duration: "Days 9-13",
+    outcome: "Make programs decide using if, elif, and else.",
+    focus: ["comparisons", "boolean logic", "nested conditions", "edge cases"],
+    practice: "Build grade checker, login checker, scholarship checker, and ticket price logic.",
+  },
+  {
+    id: "py-04",
+    track: "Python",
+    title: "Loops",
+    duration: "Days 14-20",
+    outcome: "Repeat work without repeating yourself.",
+    focus: ["for loops", "while loops", "break", "continue", "patterns"],
+    practice: "Print tables, stars, counters, guessing games, and number analysis programs.",
+  },
+  {
+    id: "py-05",
+    track: "Python",
+    title: "Lists and Tuples",
+    duration: "Days 21-26",
+    outcome: "Handle groups of data like marks, names, and scores.",
+    focus: ["indexing", "slicing", "methods", "iteration"],
+    practice: "Build a marks analyzer that finds average, highest, lowest, and failed students.",
+  },
+  {
+    id: "py-06",
+    track: "Python",
+    title: "Dictionaries and Sets",
+    duration: "Days 27-32",
+    outcome: "Represent real-world records and remove duplicates.",
+    focus: ["key-value pairs", "nested data", "set operations", "lookup thinking"],
+    practice: "Build a mini student database with add, search, update, and delete actions.",
+  },
+  {
+    id: "py-07",
+    track: "Python",
+    title: "Functions",
+    duration: "Days 33-39",
+    outcome: "Break problems into reusable blocks.",
+    focus: ["parameters", "return values", "scope", "clean naming"],
+    practice: "Rewrite your old calculators and analyzers using functions only.",
+  },
+  {
+    id: "py-08",
+    track: "Python",
+    title: "OOP Basics",
+    duration: "Days 40-46",
+    outcome: "Understand classes, objects, methods, and state.",
+    focus: ["classes", "constructors", "methods", "encapsulation"],
+    practice: "Build Student, Course, BankAccount, and Todo classes.",
+  },
+  {
+    id: "py-09",
+    track: "Python",
+    title: "Files and Exceptions",
+    duration: "Days 47-52",
+    outcome: "Save data and handle failures calmly.",
+    focus: ["read/write files", "CSV basics", "try/except", "validation"],
+    practice: "Build a notes app that saves, loads, searches, and safely handles bad input.",
+  },
+  {
+    id: "py-10",
+    track: "Python",
+    title: "Modules and Packages",
+    duration: "Days 53-56",
+    outcome: "Split code into files and use external libraries.",
+    focus: ["imports", "pip", "virtual environments", "project structure"],
+    practice: "Convert your notes app into multiple files with a clean folder structure.",
+  },
+  {
+    id: "py-11",
+    track: "Python",
+    title: "DSA Basics",
+    duration: "Days 57-75",
+    outcome: "Build problem-solving muscle before ML.",
+    focus: ["arrays", "strings", "hash maps", "two pointers", "recursion basics"],
+    practice: "Solve 50 LeetCode Easy problems. Re-solve every missed one without looking.",
+  },
+  {
+    id: "math-01",
+    track: "Math",
+    title: "Linear Algebra Intuition",
+    duration: "Weeks 1-3 parallel",
+    outcome: "See vectors and matrices as transformations, not formulas.",
+    focus: ["vectors", "matrices", "basis", "eigenvalues", "SVD intuition"],
+    practice: "Watch 3Blue1Brown Essence of Linear Algebra and summarize every video in your own words.",
+    resource: "3Blue1Brown Essence of Linear Algebra",
+  },
+  {
+    id: "math-02",
+    track: "Math",
+    title: "Calculus for Learning",
+    duration: "Weeks 3-5 parallel",
+    outcome: "Understand gradients and why models improve.",
+    focus: ["derivatives", "chain rule", "partial derivatives", "gradient descent"],
+    practice: "Draw the slope story for 10 functions and explain gradient descent like teaching a friend.",
+    resource: "3Blue1Brown Essence of Calculus",
+  },
+  {
+    id: "math-03",
+    track: "Math",
+    title: "Probability and Statistics",
+    duration: "Weeks 5-6 parallel",
+    outcome: "Understand uncertainty, data, and model evaluation.",
+    focus: ["distributions", "Bayes theorem", "hypothesis tests", "MLE"],
+    practice: "Use StatQuest notes to explain mean, variance, p-value, Bayes, and MLE simply.",
+    resource: "StatQuest",
+  },
+  {
+    id: "ml-01",
+    track: "ML",
+    title: "ML Gate: NumPy and Pandas",
+    duration: "Weeks 12-14",
+    outcome: "Manipulate data before training models.",
+    focus: ["NumPy arrays", "Pandas dataframes", "cleaning", "visual checks"],
+    practice: "Clean a student marks dataset and answer 10 questions using code.",
+  },
+  {
+    id: "ml-02",
+    track: "ML",
+    title: "Classic Machine Learning",
+    duration: "Weeks 15-18",
+    outcome: "Train, test, and explain simple models.",
+    focus: ["regression", "classification", "train/test split", "metrics"],
+    practice: "Build price prediction and pass/fail classification projects with scikit-learn.",
+  },
+  {
+    id: "ml-03",
+    track: "ML",
+    title: "Neural Networks and Deep Learning",
+    duration: "Weeks 19-23",
+    outcome: "Understand the core loop behind deep learning.",
+    focus: ["neurons", "loss", "backprop intuition", "PyTorch basics"],
+    practice: "Train a small image or text classifier and write what each step does.",
+  },
+  {
+    id: "proj-01",
+    track: "Projects",
+    title: "Portfolio Sprint",
+    duration: "Weeks 24-28",
+    outcome: "Ship proof that you can build with AI/ML.",
+    focus: ["GitHub", "deployment", "readmes", "demo videos"],
+    practice: "Publish 3 projects: data analysis, ML model, and AI-powered web app.",
+  },
+];
+
+export const trackOrder: Track[] = ["Python", "Math", "ML", "Projects"];
