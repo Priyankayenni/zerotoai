@@ -1,24 +1,14 @@
-# TODO - Supabase backend verification + leaderboard privacy
+# TODO
 
-## Plan
-- [ ] Verify Supabase runtime behavior by inspecting schema/RLS and matching frontend queries.
-- [ ] Ensure leaderboard visibility works while keeping personal details private.
-- [ ] Adjust RLS policies so leaderboard shows only `profiles.name` + a computed progress count/rank.
-- [ ] Restrict `profiles.class` to owner-only (or remove from public select).
-- [ ] Restrict `progress` rows to owner-only; allow leaderboard via an aggregated view/function.
-- [ ] Update frontend leaderboard query so it only fetches `profiles.name` and aggregated progress counts.
-- [ ] Leave progress tracking (toggle) behavior unchanged.
+## Firebase migration
 
-## Progress
-- [x] Reviewed `src/App.tsx` storage calls and `supabase/schema.sql`.
-- [x] Identified privacy mismatch: current `select using (true)` exposes `progress` and `profiles.class` publicly.
-- [x] Installed required dependencies for Supabase SSR helpers (if you later add Next.js): `npm install @supabase/supabase-js @supabase/ssr`.
-- [ ] Implement SQL/RLS + frontend changes.
-- [x] Restrict leaderboard to logged-in users via RLS (raw tables) + safe view.
-- [x] Update frontend leaderboard query to use `public.leaderboard` only.
-- [x] Remove showing `class` in leaderboard UI.
-- [x] Final verification step prepared: ensure `public.leaderboard` is queryable under RLS without leaking fields.
-- [x] Re-tested by querying leaderboard after signing in.
-
-
+- [ ] Finish replacing Supabase wiring in `src/App.tsx` with Firebase helpers from `src/lib/firebaseData.ts`.
+  - [ ] Replace auth subscription (use Firebase `onAuthStateChanged`) and remove Supabase session logic.
+  - [ ] Replace `handleAuth` to call Firebase auth signup/signin and write/load profile.
+  - [ ] Replace `togglePhase` to call `togglePhaseDone`.
+  - [ ] Replace leaderboard loading to call `loadLeaderboard`.
+  - [ ] Remove Supabase imports/flags (`isSupabaseConfigured`, `supabase`, etc.) and any remaining UI mentions.
+- [ ] Fix `src/lib/firebaseData.ts` Firestore rules/queries assumptions (optional): ensure leaderboard query strategy matches your Firestore billing/perf needs.
+- [ ] Run `npm run build` again after App rewrite.
+- [ ] Provide recommended Firestore security rules for `profiles`, `progress`, `progress_summary`.
 
