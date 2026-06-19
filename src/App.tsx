@@ -3,7 +3,7 @@ import {
   ArrowRight, Check, ChevronRight, Flame, Lock, LogOut, Search, Sparkles,
   Trophy, User, BookOpen, Target, Zap, Star, TrendingUp, Brain, X
 } from "lucide-react";
-import { FormEvent, InputHTMLAttributes, ReactNode, useCallback, useEffect, useMemo, useState } from "react";
+import { FormEvent, ReactNode, useCallback, useEffect, useMemo, useState } from "react";
 import { auth, isFirebaseConfigured } from "./lib/firebaseClient";
 import {
   authSignIn,
@@ -129,9 +129,8 @@ export default function App() {
     void loadUserData(sessionUserId);
   }, [sessionUserId]);
 
-  useEffect(() => {
-    void loadLeaderboard();
-  }, [completed.size, sessionUserId]);
+  // leaderboard refresh handled in refreshLeaderboard effect
+
 
   async function loadUserData(userId: string) {
     if (!isFirebaseConfigured) return;
@@ -142,6 +141,11 @@ export default function App() {
     if (p) setProfile(p);
     setCompleted(phaseIds);
   }
+
+  useEffect(() => {
+    void refreshLeaderboard();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sessionUserId, isFirebaseConfigured]);
 
   async function refreshLeaderboard() {
     if (!isFirebaseConfigured || !sessionUserId) {
@@ -262,7 +266,7 @@ export default function App() {
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
                 <div className="flex h-6 w-6 items-center justify-center rounded-full bg-violet-300 text-xs font-black text-black">
-                  {profile.name[0].toUpperCase()}
+                  {(profile.name?.[0] ?? "L").toUpperCase()}
                 </div>
                 <span className="text-sm font-bold text-stone-300">{profile.name.split(" ")[0]}</span>
               </div>
