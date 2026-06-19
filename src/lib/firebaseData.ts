@@ -1,5 +1,9 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  type User,
+} from "firebase/auth";
 import {
   collection,
   doc,
@@ -10,13 +14,12 @@ import {
   runTransaction,
   serverTimestamp,
   setDoc,
-
   where,
 } from "firebase/firestore";
-import type { User } from "firebase/auth";
 import { auth, firestore, isFirebaseConfigured } from "./firebaseClient";
 
 import { phases } from "../data/roadmap";
+
 
 export type Profile = { id: string; name: string; class: string | null };
 export type Leader = { id: string; name: string; class: string | null; completed: number };
